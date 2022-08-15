@@ -85,6 +85,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             color: Color(0xFF008069),
                           ),
                           child: TabBar(
+                            indicator: CustomTabIndicator(
+                              colors: const [
+                                Colors.white,
+                                Colors.white,
+                                Colors.white,
+                              ],
+                              indicatorThickness: 3,
+                              tabController: _tabController,
+                            ),
                             controller: _tabController,
                             tabs: const [
                               Tab(
@@ -106,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: TabBarView(
                       controller: _tabController,
                       children: [
-                        const Center(child: Text('Conversas')),
+                        ChatView(controller: _scrollViewController),
                         const Center(child: Text('Contatos')),
                         const Center(child: Text('Chamadas')),
                       ],
