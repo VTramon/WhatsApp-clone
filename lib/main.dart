@@ -8,14 +8,30 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'WhatsApp',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF008069),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 24.0,
+          ),
+          actionsIconTheme: IconThemeData(
+            color: Colors.white,
+          ),
+        ),
+        splashColor: Colors.white,
+        highlightColor: Colors.white,
+        tabBarTheme: const TabBarTheme(
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white,
+        ),
         colorScheme: const ColorScheme(
-          background: Color.fromARGB(255, 0, 168, 132),
+          background: Color(0xFF008069),
           brightness: Brightness.light,
           onBackground: Colors.white,
           primary: Colors.white,
