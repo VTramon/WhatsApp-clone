@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ChatView extends StatelessWidget {
   final ScrollController controller;
@@ -12,9 +10,10 @@ class ChatView extends StatelessWidget {
       controller: controller,
       children: const [
         _ChatCard(
-            name: 'Vitor Ramon',
-            image: NetworkImage(
-                'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000'))
+          name: 'Vitor Ramon',
+          image: NetworkImage(
+              'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000'),
+        ),
       ],
     );
   }
