@@ -56,6 +56,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        child: const Icon(
+          Icons.chat,
+          color: Colors.white,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -70,7 +78,29 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     onPressed: () {},
                   ),
                   _AppBarIconButton(
-                    icon: const Icon(Icons.more_vert_rounded),
+                    icon: PopupMenuButton(
+                      itemBuilder: (BuildContext context) => [
+                        const PopupMenuItem(
+                          child: Text('Novo grupo'),
+                        ),
+                        const PopupMenuItem(
+                          child: Text('Nova transmissão'),
+                        ),
+                        const PopupMenuItem(
+                          child: Text('Aparelhos conectados'),
+                        ),
+                        const PopupMenuItem(
+                          child: Text('Menssagens favoritas'),
+                        ),
+                        const PopupMenuItem(
+                          child: Text('Pagamentos'),
+                        ),
+                        const PopupMenuItem(
+                          child: Text('Configurações'),
+                        ),
+                      ],
+                      child: const Icon(Icons.more_vert_rounded),
+                    ),
                     onPressed: () {},
                   ),
                 ],
@@ -136,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
 class _AppBarIconButton extends StatelessWidget {
   final void Function() onPressed;
-  final Icon icon;
+  final dynamic icon;
   const _AppBarIconButton(
       {Key? key, required this.onPressed, required this.icon})
       : super(key: key);
