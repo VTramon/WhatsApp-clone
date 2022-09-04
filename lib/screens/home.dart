@@ -4,6 +4,8 @@ import 'package:whatsapp_clone/components/chat_view.dart';
 import 'package:whatsapp_clone/components/custom_tab_indicator.dart';
 import 'package:whatsapp_clone/components/status_view.dart';
 
+import '../components/calls_view.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -118,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       children: [
                         ChatView(controller: _scrollViewController),
                         StatusView(controller: _scrollViewController),
-                        const Center(child: Text('Chamadas')),
+                        CallsView(controller: _scrollViewController),
                       ],
                     ),
                   ),

@@ -12,14 +12,13 @@ class StatusView extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(bottom: 8.0),
           child: _MyStatus(
-            name: 'Vitor Ramon',
             image: NetworkImage(
               'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000',
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 16.0),
+          padding: const EdgeInsets.only(left: 16.0),
           child: Text(
             'Atualizações recentes',
             style: TextStyle(
@@ -28,12 +27,12 @@ class StatusView extends StatelessWidget {
             ),
           ),
         ),
-        const _OtherStatus(
+        _OtherStatus(
           name: 'name',
-          image: NetworkImage(
+          image: const NetworkImage(
             'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000',
           ),
-          time: 'há 11 minutos',
+          time: DateTime.now(),
         ),
       ],
     );
@@ -41,10 +40,9 @@ class StatusView extends StatelessWidget {
 }
 
 class _MyStatus extends StatelessWidget {
-  final String name;
+  // final String name;
   final ImageProvider<Object> image;
-  const _MyStatus({Key? key, required this.name, required this.image})
-      : super(key: key);
+  const _MyStatus({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +83,7 @@ class _MyStatus extends StatelessWidget {
 
 class _OtherStatus extends StatelessWidget {
   final String name;
-  final String time;
+  final DateTime time;
   final ImageProvider<Object> image;
   const _OtherStatus(
       {Key? key, required this.name, required this.image, required this.time})
@@ -96,7 +94,7 @@ class _OtherStatus extends StatelessWidget {
     return ListTile(
       title: Text(name),
       subtitle: Text(
-        time,
+        time.toString(),
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
       leading: CircleAvatar(
