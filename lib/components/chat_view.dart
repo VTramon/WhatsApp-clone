@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/components/card.dart';
+import 'package:whatsapp_clone/screens/chat.dart';
 
 class ChatView extends StatelessWidget {
   final ScrollController controller;
@@ -6,15 +8,27 @@ class ChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const ImageProvider image = NetworkImage(
+      'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000',
+    );
     return ListView(
       controller: controller,
       children: [
-        _ChatCard(
-          name: 'Vitor Ramon',
-          image: const NetworkImage(
-              'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?w=2000'),
-          lastMessage: 'Última menssagem',
-          lastMessageTime: DateTime.now(),
+        CustomCard(
+          title: 'Vitor Ramon',
+          image: image,
+          subTitle: 'Última menssagem',
+          time: DateTime.now(),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: ((context) => const Chat(
+                      name: 'Vitor Ramon',
+                      image: image,
+                    )),
+              ),
+            );
+          },
         ),
       ],
     );
