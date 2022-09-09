@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'WhatsApp',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Color(0xFF008069),
           titleTextStyle: TextStyle(
             color: Colors.white,

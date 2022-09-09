@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:whatsapp_clone/components/chat_view.dart';
 import 'package:whatsapp_clone/components/custom_tab_indicator.dart';
 import 'package:whatsapp_clone/components/status_view.dart';
+import 'package:whatsapp_clone/screens/contacts.dart';
 
 import '../components/calls_view.dart';
 
@@ -57,7 +58,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => Contacts()),
+          );
+        },
         backgroundColor: Theme.of(context).colorScheme.background,
         child: const Icon(
           Icons.chat,
@@ -73,35 +78,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: AppBar(
                 title: const Text('WhatsApp'),
                 actions: [
-                  _AppBarIconButton(
+                  IconButton(
                     icon: const Icon(Icons.search),
                     onPressed: () {},
                   ),
-                  _AppBarIconButton(
-                    icon: PopupMenuButton(
-                      itemBuilder: (BuildContext context) => [
-                        const PopupMenuItem(
-                          child: Text('Novo grupo'),
-                        ),
-                        const PopupMenuItem(
-                          child: Text('Nova transmissão'),
-                        ),
-                        const PopupMenuItem(
-                          child: Text('Aparelhos conectados'),
-                        ),
-                        const PopupMenuItem(
-                          child: Text('Menssagens favoritas'),
-                        ),
-                        const PopupMenuItem(
-                          child: Text('Pagamentos'),
-                        ),
-                        const PopupMenuItem(
-                          child: Text('Configurações'),
-                        ),
-                      ],
-                      child: const Icon(Icons.more_vert_rounded),
-                    ),
-                    onPressed: () {},
+                  PopupMenuButton(
+                    itemBuilder: (BuildContext context) => [
+                      const PopupMenuItem(
+                        child: Text('Menssagens favoritas'),
+                      ),
+                      const PopupMenuItem(
+                        child: Text('Configurações'),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -160,22 +149,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _AppBarIconButton extends StatelessWidget {
-  final void Function() onPressed;
-  final dynamic icon;
-  const _AppBarIconButton(
-      {Key? key, required this.onPressed, required this.icon})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: icon,
-      onPressed: onPressed,
     );
   }
 }
