@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/card.dart';
 import 'package:whatsapp_clone/screens/chat.dart';
 
-class ChatView extends StatelessWidget {
+class ChatListView extends StatelessWidget {
   final ScrollController controller;
-  const ChatView({Key? key, required this.controller}) : super(key: key);
+  const ChatListView({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:whatsapp_clone/components/chat_view.dart';
+import 'package:whatsapp_clone/components/chat_list_view.dart';
 import 'package:whatsapp_clone/components/custom_tab_indicator.dart';
 import 'package:whatsapp_clone/components/status_view.dart';
 import 'package:whatsapp_clone/screens/contacts.dart';
@@ -76,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               height: _showAppbar ? 56.0 : 0.0,
               duration: const Duration(milliseconds: 200),
               child: AppBar(
+                automaticallyImplyLeading: false,
                 title: const Text('WhatsApp'),
                 actions: [
                   IconButton(
@@ -137,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: TabBarView(
                       controller: _tabController,
                       children: [
-                        ChatView(controller: _scrollViewController),
+                        ChatListView(controller: _scrollViewController),
                         StatusView(controller: _scrollViewController),
                         CallsView(controller: _scrollViewController),
                       ],
