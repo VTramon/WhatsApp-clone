@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:whatsapp_clone/screens/home.dart';
+import 'package:whatsapp_clone/screens/welcome.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           onSurface: Color.fromARGB(255, 17, 27, 33),
         ),
       ),
-      home: const HomeScreen(),
+      home: const Welcome(),
     );
   }
 }

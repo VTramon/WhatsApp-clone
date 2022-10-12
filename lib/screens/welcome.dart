@@ -41,16 +41,48 @@ class Welcome extends StatelessWidget {
                   color: Theme.of(context).colorScheme.background,
                 ),
               ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).colorScheme.background)),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const VerifyNumber(),
-                  ));
-                },
-                child: const Text('CONCORDAR E CONTINUAR'),
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                    child: RichText(
+                      text: const TextSpan(
+                        text: 'Leia nossa ',
+                        style: TextStyle(color: Colors.black),
+                        children: [
+                          TextSpan(
+                            text: 'Política de Privacidade, ',
+                            style: TextStyle(color: Colors.blue),
+                          ),
+                          TextSpan(
+                            text:
+                                'toque em CONCORDAR E CONTINUAR para aceitar os ',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          TextSpan(
+                            text: 'Termos de Serviço.',
+                            style: TextStyle(color: Colors.blue),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.background)),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const VerifyNumber(),
+                      ));
+                    },
+                    child: const Text(
+                      'CONCORDAR E CONTINUAR',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
